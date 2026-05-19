@@ -15,25 +15,9 @@ git clone https://github.com/dvd-22/Tarea-Nube.git
 
 1. Después de clonar el repositorio, hay que abrirlo con Eclipse Spring Tool Suite (STS) o cualquier IDE compatible con Spring Boot.
 
-2. Dentro de Spring Tools, seleccionamos los 3 servicios y damos a correr para cada uno en el botón de hasta arriba
-Los servicios que deben iniciarse son:
+2. Dejamos de usar el IDE de spring tools por problemas de compatibilidad con Arch Linux, pero con la extensión de VSCode, simplemente
+se eligen los servicios a iniciar, y les das start.
 
-- springboot-eureka-server [:8761]
-- springboot-servicio-item [:8002]
-- springboot-servicio-productos [:9001]
+3. También intentamos que puedas iniciar al correr el script de `start_all_services.sh`, pero no estamos seguros que funcione
 
-Podemos acceder a cada servicio a través de los siguientes enlaces:
-
-servicio-productos
-
-- <http://localhost:9001/listar>
-- <http://localhost:9001/ver/id/>
-- <http://localhost:9001/eliminar/id/>
-
-servicio-item
-
-- <http://localhost:8002/listar>
-- <http://localhost:8002/ver/id/cantidad/num>
-- <http://localhost:8002/eliminar/id/>
-
-Por alguna razón, a veces tarda un ratillo en iniciar bien.>
+4. Para acceder a la vista de productos, puedes entrar a http://localhost:8002/productos.html
