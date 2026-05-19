@@ -24,13 +24,14 @@ NC='\033[0m' # No Color
 wait_for_service() {
     local port=$1
     local name=$2
-    local max_attempts=30
+    local max_attempts=60
     local attempt=0
     
     echo -e "${BLUE}Esperando a que ${name} esté listo en puerto ${port}...${NC}"
     
     while [ $attempt -lt $max_attempts ]; do
-        if nc -z localhost $port 2>/dev/null; then
+        # Check IPv4 and IPv6 localhost explicitly, then hostname resolution
+        if nc -z 127.0.0.1 $port 2>/dev/null || nc -z -6 ::1 $port 2>/dev/null || nc -z localhost $port 2>/dev/null; then
             echo -e "${GREEN}✓ ${name} está listo en puerto ${port}${NC}"
             return 0
         fi
